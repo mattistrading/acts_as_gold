@@ -1,0 +1,74 @@
+h1. acts_as_gold
+
+Written by "Ariejan de Vroom":mailto:ariejan@ariejan.net.
+
+Copyright 2008 Ariejan de Vroom
+
+h2. Download
+
+Github: "Page":http://github.com/ariejan/acts_as_gold/tree/master "Clone":git://github.com/ariejan/acts_as_gold.git
+
+Gem: <pre>gem install ariejan-acts_as_gold --source http://gems.github.com</pre>
+
+Note: if you install acts_as_gold using the gem from Github, you'll need this
+in your environment.rb if you want to use Rails 2.1's dependency manager:
+
+config.gem "ariejan-acts_as_gold",
+           :lib    => "acts_as_gold",
+           :source => "http://gems.github.com"
+
+h2. Enabling acts_as_gold
+
+<pre><code># This will use player.money to store the current amount of money.
+class Player < ActiveRecord::Base
+  acts_as_gold
+end
+
+# You may also specify a different columnt for storing money
+class Player < ActiveRecord::Base
+  acts_as_gold :current_value
+end</code></pre>
+
+h2. Using acts_as_gold
+
+Acts_as_gold adds two things. If you make a model act as gold, you'll get three bonus methods: +gold+, +silver+ and +copper+. 
+
+You can have a maximum of 99 copper and 99 silver. 99 copper becomes 1 silver and 99 silver becomes 1 gold. The amount of gold is limited by the integer type you use.
+
+214,748 Gold, 36 Silver, 47 Copper for a default :integer column (int(11))
+922,337,203,685,477 Gold, 58 Silver, 07 Copper for a bigint (int(20)). 
+
+<pre><code>player.money = 3005075
+player.gold => 300
+player.silver => 50
+player.copper => 75</code></pre>
+
+A sample migration to add the money column to your model:
+
+<pre><code>add_column :players, :money, :integer, :limit => 20, :default => 15000</code></pre>
+
+This migration allows up to approximately 922,377 billion gold and gives the player 1 gold and 50 silver by default. 
+
+h2. Earning and spending
+
+It's really easy to earn and spend money.
+
+Earning money is no problem. You may want want to set a limit to the maximum amount of money you can have to avoid interger overflows. 
+
+<pre><code>player.earn(2.gold + 25.silver)</code></pre>
+
+Spending is also easy. This method return true if the money was spend successfully. It will raise a NotEnoughMoneyError if there's not enough money to be spend. 
+
+<pre><code>player.spend(10.silver + 3.copper)</code></pre>
+
+h2. Fixnum and Bignum extensions
+
+As een in the previous examples, you can use several helper methods on Fixnum and Bignum to convert them to correct money values. You can use these throughout your application:
+
+<pre><code>25.gold
+33.silver
+78.copper</code></pre>
+
+h2. More Information
+
+"Ariejan.net":http://ariejan.net
