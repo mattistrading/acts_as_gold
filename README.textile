@@ -1,32 +1,45 @@
 h1. acts_as_gold
 
-Written by "Ariejan de Vroom":mailto:ariejan@ariejan.net.
+Acts_as_gold extends ActiveRecord models to use a single integer column to store money in the form of Gold, Silver and Copper. This money system can be found in many games, including World of Warcraft.
+
+Written by "Ariejan de Vroom":mailto:ariejan@ariejan.net
 
 Copyright 2008 Ariejan de Vroom
 
-h2. Download
+h2. Download and installation
 
-Github: "Page":http://github.com/ariejan/acts_as_gold/tree/master "Clone":git://github.com/ariejan/acts_as_gold.git
+You can install acts_as_gold either as a Ruby on Rails plugin or a Ruby Gem. It's recommended you use the Ruby Gem to get easier updates later on. 
 
-Gem: <pre>gem install ariejan-acts_as_gold --source http://gems.github.com</pre>
+h3. Plugin installation
 
-Note: if you install acts_as_gold using the gem from Github, you'll need this
-in your environment.rb if you want to use Rails 2.1's dependency manager:
+Simply install the plugin:
 
-config.gem "ariejan-acts_as_gold",
+<pre>./script/plugin install git://github.com/ariejan/acts_as_gold.git</pre>
+
+h3. Gem installation
+
+Just install the gem:
+
+<pre>gem install ariejan-acts_as_gold --source http://gems.github.com</pre>
+
+Add the following to your environment.rb if you want to use Rails 2.1's dependency manager (which is highly recommended):
+
+<pre><code>config.gem "ariejan-acts_as_gold",
            :lib    => "acts_as_gold",
-           :source => "http://gems.github.com"
+           :source => "http://gems.github.com"</code></pre>
 
 h2. Enabling acts_as_gold
 
-<pre><code># This will use player.money to store the current amount of money.
-class Player < ActiveRecord::Base
-  acts_as_gold
-end
+This will use player.money to store the current amount of money.
 
-# You may also specify a different columnt for storing money
-class Player < ActiveRecord::Base
-  acts_as_gold :current_value
+<pre><code>class Player < ActiveRecord::Base
+  acts_as_gold	# Uses the +money+ attribute from Player
+end</code></pre>
+
+You may also specify a different column for storing money, for example +pennies+
+
+<pre><code>class Player < ActiveRecord::Base
+  acts_as_gold :column => :pennies # Uses the +pennies+ attribute from Player
 end</code></pre>
 
 h2. Using acts_as_gold
