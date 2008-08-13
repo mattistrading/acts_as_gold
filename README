@@ -1,0 +1,17 @@
+ActsAsGold
+==========
+
+Allows a model to have copper, silver and gold, based on a single integer column on the model itself. 
+
+For example, this Character model has the following migration:
+
+add_column :money, :integer, :limit => 20 
+
+
+Example
+=======
+
+Example goes here.
+
+
+Copyright (c) 2008 [name of plugin creator], released under the MIT license
