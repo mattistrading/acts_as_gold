@@ -1,4 +1,6 @@
 2008-08-13
+ * [1.0.4] ariejan - Bump to 1.0.4 to ping github
+ * [1.0.3] ariejan - Bump to 1.0.3 to ping github
  * [1.0.2] ariejan - Added tests and fixed a bug when using a custom column to store the money value.
  * [1.0.1] ariejan - Minor changes to the gemspec.
  * [1.0.0] ariejan - Initial release of the acts_as_gold plugin and gem..

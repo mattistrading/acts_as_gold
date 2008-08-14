@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
   s.name = %q{acts_as_gold}
-  s.version = "1.0.3"
+  s.version = "1.0.4"
  
   s.specification_version = 2 if s.respond_to? :specification_version=
  
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ariejan de Vroom"]
   s.homepage = %q{http://ariejan.net}
-  s.date = %q{2008-08-13}
+  s.date = %q{2008-08-14}
   s.description = %q{acts_as_gold allows you to extend a model with money in the form of Gold, Silver and Copper, as seen in World of Warcraft}
   s.email = %q{ariejan@ariejan.net}
   s.extra_rdoc_files = ["README.textile"]
