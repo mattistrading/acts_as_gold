@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{acts_as_gold}
-  s.version = "1.0.4"
+  s.version = "1.0.5"
  
   s.specification_version = 2 if s.respond_to? :specification_version=
  
