@@ -131,3 +131,5 @@ end
 class Bignum
   include ActsAsGold::IntegerExtensions
 end
+
+ActiveRecord::Base.class_eval { include ActsAsGold }

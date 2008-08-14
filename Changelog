@@ -1,5 +1,8 @@
-2008-08-13
+2008-08-14
+ * [1.0.5] ariejan - Fixed bug with gem not monkey patching ActiveRecord::Base correctly. 
  * [1.0.4] ariejan - Bump to 1.0.4 to ping github
+
+2008-08-13
  * [1.0.3] ariejan - Bump to 1.0.3 to ping github
  * [1.0.2] ariejan - Added tests and fixed a bug when using a custom column to store the money value.
  * [1.0.1] ariejan - Minor changes to the gemspec.
